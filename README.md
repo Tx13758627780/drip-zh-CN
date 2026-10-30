@@ -36,7 +36,9 @@
 
 ## 安装方法（Android）
 
-1. 在 [Releases](https://github.com/Tx13758627780/drip-zh-CN/releases/latest) 下载 `drip-zh-CN-v1.2610.24-zh.1.apk`（通用包，支持 arm64-v8a / armeabi-v7a / x86_64，Android 7.0+）。
+1. 在 [Releases](https://github.com/Tx13758627780/drip-zh-CN/releases/latest) 下载 `drip-zh-CN-v1.2610.24-zh.2.apk`（通用包，支持 arm64-v8a / armeabi-v7a / x86 / x86_64，Android 7.0+）。
+   - APK SHA-256：`917bfadccdbd9ed66bfd6e2df436f0abe724ee59be782de747a6c05501a85756`
+   - **zh.1 用户请升级**：v1.2610.24-zh.1 在部分手机上打开即闪退（原生库加载问题），zh.2 已修复。zh.2 可直接覆盖安装在 zh.1 之上，无需卸载，数据保留。
 2. 用浏览器或文件管理器打开 APK，按提示允许“安装未知应用”后安装。
 3. 系统语言为中文时，应用会自动显示中文；也可在 菜单 → 设置 → 语言 中选择“简体中文”。
 
@@ -61,7 +63,7 @@ pnpm translations:validate   # 校验中文翻译的 key 与占位符
 pnpm test
 cd android
 # 需先配置签名参数（见下）；仅本地试用可改用 ./gradlew assembleDebug
-./gradlew assembleRelease -PDRIP_APPLICATION_ID_SUFFIX=.zhcn -PDRIP_VERSION_NAME_SUFFIX=-zh.1
+./gradlew assembleRelease -PDRIP_APPLICATION_ID_SUFFIX=.zhcn -PDRIP_VERSION_NAME_SUFFIX=-zh.2
 ```
 
 签名参数（`DRIP_RELEASE_STORE_FILE` 等）请放在 `~/.gradle/gradle.properties` 中，切勿提交到仓库。
@@ -81,7 +83,7 @@ cd android
 - `i18n/en.json`、`i18n/de.json`：新增语言名称“简体中文”
 - `components/helpers/home.js`：中文序数（“第 12”、“12 日”）
 - `components/calendar.js`：中文日历月份标题“yyyy 年 M 月”
-- `android/app/build.gradle`：可选的包名后缀 / 版本名后缀参数（默认不影响官方构建）
+- `android/app/build.gradle`：可选的包名后缀 / 版本名后缀参数（默认不影响官方构建）；启用 `useLegacyPackaging`（安装时解压原生库，修复 zh.1 启动闪退）；versionCode 58
 - `scripts/validate-translations.mjs`、`test/language.spec.ts`、`test/home-helpers.spec.js`：翻译校验与测试
 
 ## 许可证（GPL-3.0）

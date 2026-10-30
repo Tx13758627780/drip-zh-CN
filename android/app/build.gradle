@@ -78,11 +78,19 @@ android {
     compileSdk rootProject.ext.compileSdkVersion
 
     namespace "com.drip"
+
+    // drip-zh-CN: let the OS extract native libraries on install (extractNativeLibs=true)
+    // so SoLoader loads them from the app's lib dir instead of directly from the APK.
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
     defaultConfig {
         applicationId "com.drip"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-         versionCode 57
+         versionCode 58
          versionName "1.2610.24"
     }
     signingConfigs {
