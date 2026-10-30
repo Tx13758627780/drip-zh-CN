@@ -273,6 +273,7 @@
   "sideMenu.settings.data.import.success.title": "Success",
   "sideMenu.settings.language.languages.de-DE": "German",
   "sideMenu.settings.language.languages.en-US": "English",
+  "sideMenu.settings.language.languages.zh-CN": "Simplified Chinese (简体中文)",
   "sideMenu.settings.language.title": "Language",
   "sideMenu.settings.menuItem.customization.name": "Customization",
   "sideMenu.settings.menuItem.customization.text": "Define how you want to use drip",

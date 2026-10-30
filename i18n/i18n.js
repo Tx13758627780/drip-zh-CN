@@ -4,10 +4,12 @@ import { initReactI18next } from 'react-i18next'
 // translation files
 import en from './en.json'
 import de from './de.json'
+import zh from './zh.json'
 
 const resources = {
   'en-US': { translation: en },
   'de-DE': { translation: de },
+  'zh-CN': { translation: zh },
 }
 
 i18n

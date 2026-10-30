@@ -1,4 +1,7 @@
-import { getOrdinalSuffix } from '../components/helpers/home'
+import {
+  formatWithOrdinalSuffix,
+  getOrdinalSuffix,
+} from '../components/helpers/home'
 import i18n from '../i18n/i18n'
 
 describe('Home helper: getOrdinalSuffix', () => {
@@ -30,5 +33,27 @@ describe('Home helper: getOrdinalSuffix', () => {
     await i18n.changeLanguage('de-DE')
 
     expect(getOrdinalSuffix(15)).toEqual('.')
+  })
+
+  test("if language is Chinese, it returns suffix '日'", async () => {
+    await i18n.changeLanguage('zh-CN')
+
+    expect(getOrdinalSuffix(15)).toEqual('日')
+  })
+})
+
+describe('Home helper: formatWithOrdinalSuffix', () => {
+  afterEach(async () => {
+    await i18n.changeLanguage('en-US')
+  })
+
+  test('in English it appends the ordinal suffix', () => {
+    expect(formatWithOrdinalSuffix(12)).toEqual('12th')
+  })
+
+  test("in Chinese it prefixes '第'", async () => {
+    await i18n.changeLanguage('zh-CN')
+
+    expect(formatWithOrdinalSuffix(12)).toEqual('第12')
   })
 })

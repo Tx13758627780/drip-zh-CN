@@ -38,6 +38,8 @@ const CalendarView = ({ setDate, navigate }) => {
         key={i18n.language}
         // If firstDay=1 week starts from Monday. Note that dayNames and dayNamesShort should still start from Sunday.
         firstDay={1}
+        // Chinese month header: "2026年10月" instead of "十月 2026"
+        monthFormat={i18n.language === 'zh-CN' ? "yyyy'年'M'月'" : 'MMMM yyyy'}
         onDayPress={passDateToDayView}
         markedDates={markedDates}
         markingType="custom"

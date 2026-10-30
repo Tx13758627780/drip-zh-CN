@@ -8,6 +8,7 @@ import {
   TEMP_SCALE_UNITS,
 } from './config'
 import { isLanguage, Language } from './i18n/constants'
+import { getDeviceLanguage } from './i18n/device-language'
 import { PeriodReminder, TemperatureReminder } from './lib/notifications/types'
 
 type Scale = { min: number; max: number }
@@ -222,9 +223,9 @@ async function setObvWithInitValue<T>(
 export async function getLanguage(): Promise<Language> {
   try {
     const storedLanguage = await AsyncStorage.getItem('language')
-    return isLanguage(storedLanguage) ? storedLanguage : 'en-US'
+    return isLanguage(storedLanguage) ? storedLanguage : getDeviceLanguage()
   } catch {
-    return 'en-US'
+    return getDeviceLanguage()
   }
 }
 

@@ -39,6 +39,11 @@ export function getOrdinalSuffix(num) {
     return '.'
   }
 
+  // Chinese: day of month is written as "12日"
+  if (i18n.language === 'zh-CN') {
+    return '日'
+  }
+
   const j = num % 10
   const k = num % 100
 
@@ -58,5 +63,9 @@ export function getOrdinalSuffix(num) {
 }
 
 export function formatWithOrdinalSuffix(num) {
+  // Chinese ordinals use a prefix: "第12"
+  if (i18n.language === 'zh-CN') {
+    return `第${num}`
+  }
   return num + getOrdinalSuffix(num)
 }

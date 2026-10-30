@@ -110,6 +110,13 @@ android {
 
         release {
             signingConfig signingConfigs.release
+            // drip-zh-CN: optional suffix so the localized build can be installed next to the official app
+            if (project.hasProperty('DRIP_APPLICATION_ID_SUFFIX')) {
+                applicationIdSuffix DRIP_APPLICATION_ID_SUFFIX
+            }
+            if (project.hasProperty('DRIP_VERSION_NAME_SUFFIX')) {
+                versionNameSuffix DRIP_VERSION_NAME_SUFFIX
+            }
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }

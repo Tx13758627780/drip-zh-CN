@@ -273,6 +273,7 @@
   "sideMenu.settings.data.import.success.title": "Es hat geklappt!",
   "sideMenu.settings.language.languages.de-DE": "Deutsch",
   "sideMenu.settings.language.languages.en-US": "Englisch",
+  "sideMenu.settings.language.languages.zh-CN": "Vereinfachtes Chinesisch (简体中文)",
   "sideMenu.settings.language.title": "Sprache",
   "sideMenu.settings.menuItem.customization.name": "Personalisierung",
   "sideMenu.settings.menuItem.customization.text": "App personalisieren",
